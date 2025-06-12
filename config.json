@@ -1,12 +1,13 @@
 {
   "name": "Discord Bot",
-  "version": "1.2",
+  "version": "1.2.1",
   "slug": "discord_bot",
   "url": "https://github.com/kjell5317/addon-discord_bot",
   "description": "Discord bot running on a dockerized NodeJS server",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
+  "services": ["mqtt:need"],
   "options": {
     "bot_token": null,
     "mqtt_port": 1883,
@@ -17,7 +18,7 @@
     "your_id": null
   },
   "schema": {
-    "bot_token": "str",
+    "bot_token": "password",
     "mqtt_port": "port",
     "topic_online": "str",
     "topic_voice": "str",

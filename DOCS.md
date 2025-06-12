@@ -10,23 +10,23 @@
 ### MQTT
 
 1. Make sure you have [Mosquitto broker](https://github.com/home-assistant/addons/tree/master/mosquitto) up and running!
-2. Enter your `<url>` and `<login>` information!
-3. Choose a unique `<topic>` which will be used by your bot to publish and subscribe!
-   1. `<command>` is the topic you're **sending** _string_ commands to which could be _mute, unmute, deaf, undeaf and kick_!
-   2. `<online>` is the topic where you're **getting** information about your _online server mebers and their activities_ as a json!
-   3. `<voice>` **returns** a boolean if you're _connected to a voice channel_ and if you're muted or deafed!
+2. Choose a unique `<topic>` which will be used by your bot to publish and subscribe!
+   1. `<command>` is the topic you're **sending** _string_ commands to, which could be _mute, unmute, deaf, undeaf and kick_. All other strings that you send to this endpoint are displayed as the activity of the bot in discord.
+   2. `<online>` is the topic where you're **getting** information about your _online server mebers and their activities_ as JSON.
+   3. `<voice>` **returns** booleans if you're _connected to a voice channel_ and if you're muted or deafed!
 
 ### IDs
 
 1. After you or an admin added your bot to a server you can right-click on the server name to copy the `<guild_id>` (developer mode of your account has to be enabled)
-2. `<your_id>` can be found by right-clicking on your name in the users tab of the server!
+2. `<your_id>` can be found by right-clicking on your name in the users tab of the server
 
 ## How to use
 
 1. Subscribe to your choosen `<topics>` via [HomeAssistant](https://www.home-assistant.io/integrations/sensor.mqtt/) or NodeRED
 2. Publish your _commands_ to your choosen `<topic>`
 
-You can use [this Flow](https://gist.github.com/kjell5317/530394d028383119e9523e777d2ac1ce) to filter your friends and use all available commands.
+You can use [this Flow](https://github.com/kjell5317/addon-discord_bot/blob/main/node-RED/flow.json) to easily use the MQTT endpoints. You need the Node-RED add-on and the [companion integration](https://github.com/zachowj/hass-node-red) installed.
+Select your instances in the nodes and add your username and those of your friends you want to know about in the **EDIT**-function node.
 
 ## Customization
 

@@ -12,13 +12,13 @@ const guild_id = args[8];
 const your_id = args[9];
 
 // Discord
-const { Client, Intents, Options } = require("discord.js");
+const { Client, GatewayIntentBits, Options } = require("discord.js");
 const d_client = new Client({
   intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_PRESENCES,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.GUILD_VOICE_STATES,
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildVoiceStates,
   ],
   makeCache: Options.cacheWithLimits({
     ...Options.defaultMakeCacheSettings,

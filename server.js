@@ -50,7 +50,7 @@ const options = {
   clean: true,
   resubscribe: false,
 };
-const m_client = mqtt.connect(mqtt_url, options);
+const m_client = mqtt.connect(`mqtt://${mqtt_url}`, options);
 
 m_client.on("connect", () => {
   console.info("MQTT connected");

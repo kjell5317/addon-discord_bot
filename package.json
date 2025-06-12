@@ -5,7 +5,7 @@
   "author": "kjell5317",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kjell5317/discord-bot"
+    "url": "https://github.com/kjell5317/addon-discord_bot"
   },
   "main": "server.js",
   "scripts": {

@@ -69,6 +69,7 @@ m_client.on("close", () => {
 m_client.on("message", (topic, message) => {
   if (topic === topic_command) {
     const you = d_client.guilds.cache.get(guild_id).members.cache.get(your_id);
+    console.log(`Command received: ${message.toString()}`);
     switch (message.toString()) {
       case "mute":
         you.voice.setMute(true);
@@ -97,7 +98,6 @@ m_client.on("message", (topic, message) => {
           ],
           status: "online",
         });
-      // console.error(`The Command '${message.toString()}' is not supported`);
     }
   }
 });

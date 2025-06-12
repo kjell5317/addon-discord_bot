@@ -12,13 +12,13 @@ const guild_id = args[8];
 const your_id = args[9];
 
 // Discord
-const { Client, Intents, Options } = require("discord.js");
+const { Client, GatewayIntentBits, Options } = require("discord.js");
 const d_client = new Client({
   intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_PRESENCES,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.GUILD_VOICE_STATES,
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildVoiceStates,
   ],
   makeCache: Options.cacheWithLimits({
     ...Options.defaultMakeCacheSettings,
@@ -112,13 +112,10 @@ d_client.on("voiceStateUpdate", (oldState, newState) => {
       );
     }
   } else {
-    console.log(newState.member.id);
     if (newState.member.id === your_id) {
-      let deaf = newState.member.voice.deaf;
-      let mute = newState.member.voice.mute;
       m_client.publish(
         topic_voice,
-        `{"voice_connection": true, "mute": "${mute}", "deaf": "${deaf}"}`
+        `{"voice_connection": true, "mute": "${newState.member.voice.mute}", "deaf": "${newState.member.voice.deaf}"}`
       );
     }
   }
